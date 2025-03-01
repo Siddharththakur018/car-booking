@@ -8,16 +8,32 @@
       {
         "src": "car.js",
         "use": "@vercel/node"
+      },
+      {
+        "src": "service.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "booking.js",
+        "use": "@vercel/node"
       }
     ],
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "index.js"
+        "src": "/car",
+        "dest": "car.js"
+      },
+      {
+        "src": "/service",
+        "dest": "service.js"
+      },
+      {
+        "src": "/booking",
+        "dest": "booking.js"
       },
       {
         "src": "/(.*)",
-        "dest": "car.js"
+        "dest": "index.js"
       }
     ]
   }
