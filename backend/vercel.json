@@ -20,7 +20,7 @@
     ],
     "routes": [
       {
-        "src": "/car",
+        "src": "/cars",
         "dest": "car.js"
       },
       {
