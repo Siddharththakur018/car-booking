@@ -11,20 +11,21 @@ function CarBrand() {
     const navigate = useNavigate(); // React Router Hook
 
     useEffect(() => {
-        fetch("http://localhost:4000/cars")
+        fetch("https://backend-f1q64bvwa-siddharths-projects-a1e22d04.vercel.app/car") // ✅ Cars API
             .then((res) => res.json())
             .then((data) => {
                 console.log("Fetched Cars:", data);  // Debugging
-
+    
                 // Set all cars
                 setCarBrands(data);
-
+    
                 // Get unique brands
                 const uniqueBrandList = [...new Set(data.map(car => car.brand))];
                 setUniqueBrands(uniqueBrandList); // Set unique brands
             })
             .catch((error) => console.error("Error fetching cars:", error));
     }, []);
+    
 
     // Brand click handler
     const handleBrandClick = (brand) => {
@@ -45,8 +46,9 @@ function CarBrand() {
             console.error("Car ID is missing! Car object:", car);
             return;
         }
-        navigate(`/cars/${car._id}`);
+        navigate(`/cars/${car._id}`); // ✅ Ye same rahega
     };
+    
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">

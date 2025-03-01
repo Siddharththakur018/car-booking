@@ -25,17 +25,19 @@ function Cars() {
     };
 
     const handleBookingClick = () => {
-        navigate("/carBooking",{
-            state: { carId: id, car } // Pass the full car object here
-        })
+        navigate("/carBooking", {
+            state: { carId: id, car }
+        });
     };
+    
 
     useEffect(() => {
-        fetch(`http://localhost:4000/cars/${id}`)
+        fetch(`https://backend-f1q64bvwa-siddharths-projects-a1e22d04.vercel.app/car/${id}`)
             .then((res) => res.json())
             .then((data) => setCar(data))
             .catch((error) => console.error("Error fetching car:", error));
     }, [id]);
+    
 
     if (!car) {
         return <h2 className="text-center text-gray-600">Loading...</h2>;
