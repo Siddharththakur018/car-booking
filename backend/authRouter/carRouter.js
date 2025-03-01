@@ -2,6 +2,7 @@ const express = require("express");
 const Car = require("../model/car-model");
 const carRouter = express.Router();
 const {getCar, getCarModels, addCar, updateCar, deleteCar} = require("../controller/car-controller")
+require("dotenv").config();  
 
 carRouter.get('/', getCarModels);
 carRouter.get('/brands', getCar);

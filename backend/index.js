@@ -29,6 +29,6 @@ mongoose.connect(process.env.MONGO_URI || "mongodb+srv://thakursiddharth530:Sidd
     console.log("Database Not Connected");
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Server Started on Port 3000");
 });
