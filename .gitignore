@@ -1,0 +1,5 @@
+# Ignore environment variables
+.env
+
+/node_modules"backend/.env" 
+"backend/authRouter/auth.js" 
