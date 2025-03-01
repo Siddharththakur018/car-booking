@@ -32,7 +32,7 @@ function Cars() {
     
 
     useEffect(() => {
-        fetch(`https://backend-f1q64bvwa-siddharths-projects-a1e22d04.vercel.app/car/${id}`)
+        fetch(`https://backend-f1q64bvwa-siddharths-projects-a1e22d04.vercel.app/cars/${id}`)
             .then((res) => res.json())
             .then((data) => setCar(data))
             .catch((error) => console.error("Error fetching car:", error));

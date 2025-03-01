@@ -11,7 +11,7 @@ function CarBrand() {
     const navigate = useNavigate(); // React Router Hook
 
     useEffect(() => {
-        fetch("https://backend-f1q64bvwa-siddharths-projects-a1e22d04.vercel.app/car") // ✅ Cars API
+        fetch("https://backend-f1q64bvwa-siddharths-projects-a1e22d04.vercel.app/cars") // ✅ Cars API
             .then((res) => res.json())
             .then((data) => {
                 console.log("Fetched Cars:", data);  // Debugging
