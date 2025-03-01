@@ -11,19 +11,25 @@ function CarBrand() {
     const navigate = useNavigate(); // React Router Hook
 
     useEffect(() => {
-        fetch("https://backend-f1q64bvwa-siddharths-projects-a1e22d04.vercel.app/cars") // ✅ Cars API
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("Fetched Cars:", data);  // Debugging
-    
-                // Set all cars
-                setCarBrands(data);
-    
-                // Get unique brands
-                const uniqueBrandList = [...new Set(data.map(car => car.brand))];
-                setUniqueBrands(uniqueBrandList); // Set unique brands
-            })
-            .catch((error) => console.error("Error fetching cars:", error));
+        fetch("https://backend-f1q64bvwa-siddharths-projects-a1e22d04.vercel.app/cars", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.getItem("token")}`  // ✅ Ensure token is stored
+            }
+        })
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error(`HTTP Error! Status: ${res.status}`);  // Debugging
+            }
+            return res.json();
+        })
+        .then((data) => {
+            console.log("Fetched Cars:", data);
+            setCarBrands(data);
+            setUniqueBrands([...new Set(data.map(car => car.brand))]);
+        })
+        .catch((error) => console.error("Error fetching cars:", error));
     }, []);
     
 
